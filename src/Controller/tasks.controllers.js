@@ -28,4 +28,16 @@ exports.findId = (req, res) => {
     return res.json(tassk);
 }
 
+exports.updateTitle = (req, res) => {
+    const id = req.params.id;
+    const newTitle = req.body.title;
+    if (!newTitle) {
+        return res.status(400).json({ message: "Se requiere un título" });
+    }
+    const updated = Task.updateTitle(id, newTitle);
+    if (!updated) 
+        return res.status(404).json({message: "Tarea no encontrada"});
+    return res.json(updated);
+}
+
 

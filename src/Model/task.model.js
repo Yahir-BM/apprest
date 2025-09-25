@@ -33,8 +33,11 @@ function findId(id) {
 }
 
 //Para actualizar el titulo de una tarea
-function updateTitle(title) {
-    
+function updateTitle(id, newTitle) {
+    const taskk = task.find(item => item.id === id);
+    if (!taskk) return null;
+    taskk.title = newTitle;
+    return taskk
 } 
 
-module.exports = { findAll, addTask, removeTask, findId};
+module.exports = { findAll, addTask, removeTask, findId, updateTitle};
