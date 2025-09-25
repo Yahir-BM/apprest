@@ -7,5 +7,6 @@ const router = Router();
 router.get("/", controller.findAll);
 router.post("/", controller.addTask);
 router.delete("/:id", controller.removeTask);
+router.get("/:id", controller.findId);
 
 module.exports = router;

@@ -29,8 +29,7 @@ function removeTask(id) {
 
 //Para buscar por id
 function findId(id) {
-    return 
-    klkmpn
+    return task.find(item => item.id === id) || null;
 }
 
 //Para actualizar el titulo de una tarea
@@ -38,4 +37,4 @@ function updateTitle(title) {
     
 } 
 
-module.exports = { findAll, addTask, removeTask};
+module.exports = { findAll, addTask, removeTask, findId};

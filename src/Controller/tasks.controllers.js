@@ -19,3 +19,13 @@ exports.removeTask = (req, res) => {
     }
     return 
 }
+
+exports.findId = (req, res) => {
+    const id = req.params.id;
+    const tassk = Task.findId(id);
+    if (!tassk) 
+        return res.status(404).json({message: "Tarea no encontrada"})
+    return res.json(tassk);
+}
+
+
