@@ -40,4 +40,11 @@ exports.updateTitle = (req, res) => {
     return res.json(updated);
 }
 
+exports.completeTask = (req, res) => {
+    const id = req.params.id;
+    const tassk = Task.completeTask(id);
+    if (!tassk)
+        return res.status(404).json({message: "Tarea no encontrada"});
+    return res.json(tassk);
+}
 

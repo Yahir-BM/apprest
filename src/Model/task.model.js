@@ -40,4 +40,13 @@ function updateTitle(id, newTitle) {
     return taskk
 } 
 
-module.exports = { findAll, addTask, removeTask, findId, updateTitle};
+//Para completar y desacompletar una tarea
+function completeTask(id) {
+    const tassk = task.find(item => item.id === id);
+    if (!tassk)
+        return null;
+    tassk.complete = !tassk.complete;
+    return tassk;
+}
+
+module.exports = { findAll, addTask, removeTask, findId, updateTitle, completeTask};
